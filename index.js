@@ -47,35 +47,40 @@ function addNumberToBank(e){
   numberBank.push(number);//now push the number in array
   input.value='';
   console.log(numberBank);
+  render()
 }
 
 form.addEventListener('submit',addNumberToBank);//eventListener call for submit by use call function
 
- function sortOne(){
+ function sortOne(){//function that can isolate one numbe to be odd or even
  console.log('sortOne');
- const number = numberBank.pop();
- if(number % 2 === 0){
+ const number = numberBank.pop();// cut out the array number and
+ if(number % 2 === 0){//if the number become even then push the number in
    evens.push(number)
  }else{
-   odds.push(number)
+   odds.push(number)// else it will odds
  }
+ render()
  console.log(odds);
  console.log(evens);
  }
 
  function sortAll(){
  console.log('sortAll');
-   while(numberBank.length>0){
+   while(numberBank.length>0){// this will continous superate until end
      sortOne();
    }
 } 
-const numberBankEl = document.querySelector('#numberBank output')
+
+const numberBankEl = document.querySelector('#numberBank output')//
 const oddsEl = document.querySelector('#odds output')
 const evensEl = document.querySelector('#evens output')
+
 function render(){
 numberBankEl.textContent = numberBank
 oddsEl.textContent = odds
 evensEl.textContent = evens
 }
- sortOneButton.addEventListener('click',sortOne);
- sortAllButton.addEventListener('click',sortAll);
+
+sortOneButton.addEventListener('click',sortOne);
+sortAllButton.addEventListener('click',sortAll);
